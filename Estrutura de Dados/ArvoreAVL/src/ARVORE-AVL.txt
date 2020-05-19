@@ -1,0 +1,61 @@
+Árvore AVL 
+
+Link útil calcular altura -> https://i.ytimg.com/vi/Ia5N8JBy7iE/maxresdefault.jpg
+
+###### Balanceamento ########
+
+- Toda vez que a arvore é modificada, verificar fator balancemento.
+- Não confundir altura com fator de balanceamento!
+- Não é só a raiz que determina o fator de balanceamento. É necessário investigar cada um dos nós. A Raiz pode estar correto, porém mais pra baixo não.
+
+------------------
+
+Em uma árvore balanceada, o balanceamento de cada nó é –1, 0 ou 1.
+-> Balanceamento -1: altura da subárvore esquerda é menor do que a altura da direita.
+-> Balanceamento 0: ambas as subárvores possuem a mesma altura.
+-> Balanceamento 1: a altura da subárvore esquerda é maior do que a altura da direita.
+
+------------------
+
+ROTAÇÕES 
+- O elemento onde estorou nosso balanceamento, é a raiz da rotação para realizar o procedimento de rotação, não é a raiz da árvore.
+- A raiz da árvore deve ser atualizada/trata após o procedimento de rotação. (Utilizar um pré-ordem para constatar).
+- Situação quando quebra a estrutura da árvore: Pegar o pai da raiz da rotação, seta-lo para a novaRaiz da rotação.
+
+ROTAÇÃO A DIREITA (Passos):
+1. Node novaRaiz = raiz.esquerda;
+2. Node temp = novaRaiz.direita;
+3. novaRaiz.direita = raiz;
+4. raiz.esquerda = temp;
+
+ROTAÇÃO A ESQUERDA (Passos):
+1. Node novaRaiz = raiz.direita;
+2. Node temp = novaRaiz.esquerda;
+3. novaRaiz.esquerda = raiz;
+4. raiz.direita = temp;
+
+OBS: OS pseudocódigos acima, só tratam da rotação e não das atualizações, na hora de implementar, fora esses passos, tem que tratar das atualizações dos nós.
+
+-------------------
+
+CASOS PARTICULARES
+
+-> Quando um nó estoura FB = 2 e possui um filho com FB = -1, então deve-se primeiramente rotacionar o filho à esquerda e depois o pai à direita.
+-> Quando um nó estoura FB = -2 e possui um filho com FB = 1 então deve-se primeiramente rotacionar o filho à direita e depois o pai à esquerda.
+
+RESUMO DE ROTAÇÕES:
+-------------------------------------------
+FB |FB (filho) | O que fazer		  -
+-------------------------------------------
+-2 |   -1      | Rotação a esquerda
+-2 |	1      | Rotação dupla a esquerda
+ 2 |    1      | Rotação a direita
+ 2 |   -1      | Rotação dupla a direita
+-------------------------------------------
+
+Legenda: FB = Fator Balanceamento.
+
+-------------------
+
+DICAS IMPLEMENTAÇÃO:
+- Aproveitar a recursividade de inserção para calcular o fator de balanceamento.

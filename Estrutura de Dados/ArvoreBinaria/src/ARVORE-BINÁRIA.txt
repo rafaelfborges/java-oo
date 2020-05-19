@@ -1,0 +1,42 @@
+- Uma Árvore Binária consiste em um conjunto de nós.
+- Existem três componentes em uma árvore binária: a raíz, uma subárvore esquerda e uma subárvore direita.
+- Cada subárvore também é uma árvore binária e pode ou não estar vazia.
+- Além disso, subárvores esquerda e direita são conjuntos disjuntos de nós.
+___________
+
+Passo 1: Se a árvore está vazia, crie uma árvore com um único nó contendo o valor N;
+
+Tips: Na operação de inserção, as propriedades de uma árvore devem ser obedecidas e todo novo nó, é sempre uma folha!
+
+Passo 2: Se o número é maior do que o valor armazenado no nó raiz, então repita o procedimento sobre a subárvore direita do nó raíz.
+
+
+Passo 3: Se o número é menor do que o valor armazenado sobre o nó, então repita o procedimento sobre a subárvore esquerda do nó raíz.
+
+Exemplo: 14, 15, 4, 9, 7, 18, 3, 5, 16, 4, 20, 17, 9, 14, 5
+
+------------
+
+Pré-Ordem
+- Visita Raiz da Árvore
+- Percorre a subárvore esquerda
+- Percorre a subárvore direita
+Exemplo (Slide Aula): A B D E G C F H I
+
+In-Ordem (Imprime sempre de maneira crescente)
+- Percorre a subárvore esquerda
+- Visita Raiz da Árvore
+- Percorre a subárvore direita
+Exemplo (Slide Aula): D B G E A C H F I
+
+Pós-Ordem (Último elemento sempre é raiz da árvore)
+- Percorre a subárvore esquerda
+- Percorre a subárvore direita
+- Visita Raiz da Árvore
+Exemplo (Slide Aula): D G E B H I F C A
+
+--------------------
+Situações de remoção:
+1º) Quando o nó, é folha (sem filhos = esq e direita nulos)
+2º) Quando o nó tem um único filho
+3º) Quando tem dois filhos (escolhe entre a abordagem maior da esquerda ou maior da direita).
